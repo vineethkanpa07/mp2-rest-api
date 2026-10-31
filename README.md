@@ -1,0 +1,3 @@
+# MP2: Data Processing REST API
+
+This project is a FastAPI application that turns the MP1 data-cleaning pipeline into a REST API. Users can upload a CSV file with `POST /upload`, view stored data with `GET /datasets/{id}`, and clean a dataset with `POST /datasets/{id}/process`, which takes a JSON configuration for validation (required and numeric columns), duplicate removal, missing-value handling, and outlier removal, then returns a cleaning report showing how many rows were removed. `GET /health` reports the API's status. Every request is logged with a request ID, method, path, status code, and response time, and the request ID is returned in the `X-Request-ID` header. The MP1 modules are reused in `data_pipeline/`, and the API is tested with pytest.
